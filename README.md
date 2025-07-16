@@ -1,4 +1,533 @@
----
+M is 6 so each value is a most 6
+[1,6]
+
+```math
+A[N] = \begin{bmatrix}
+3 & 1 & 5 & 4 & 2 & 1 & 3 & 4 & 1 & 6 & 1 & 3 & 4 & 6 & 1 & 4 
+\end{bmatrix}
+```
+```math
+B = \begin{bmatrix} 
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+```
+We will look at B like this
+
+```math
+B[0] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[1] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[2] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[3] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[5] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[6] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+
+Now each thread move its values to its row acording to the value
+
+```math
+A[N] = \begin{bmatrix}
+3 & 1 & 5 & 4 & 2 & 1 & 3 & 4 & 1 & 6 & 1 & 3 & 4 & 6 & 1 & 4 \\
+\downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & 
+\downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & 
+\downarrow & \downarrow & \downarrow & \downarrow
+\end{bmatrix}
+```
+
+```math
+B[0] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[1] = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \end{bmatrix}
+```
+```math
+B[2] = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[3] = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \end{bmatrix}
+```
+```math
+B[5] = \begin{bmatrix} 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[6] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
+```
+now lets just look at an example
+lets look just at row B[4] - so we can understand 
+
+```math
+B[4] = \begin{bmatrix} 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \end{bmatrix}
+```
+each 1 represents an appernce of trhe number 4 
+lets call the frequency of number 4 to be $f_4$
+
+we want to count the number of 1's without the need of n thread - insted we will only neet $f_4$ threads
+
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{black}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{black}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{black}{1} &
+\end{bmatrix}
+```
+for each iteration i
+we will now look at the half from the right side -> $\left[\frac{n}{2^i - 1},\ \frac{n}{2^i}\right]$
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{black}{1} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{red}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{red}{1} &
+\end{bmatrix}
+```
+At each folding step $i$, we divide the row into two halves of size $\frac{n}{2^i}$.
+
+Any thread whose index $j$ satisfies:
+$j \in \left[\frac{n}{2^i - 1},\ \frac{n}{2^i}\right]$  
+(i.e., the **right half**) will:
+- Take its value
+- Move (or fold) it into the **left half** at index:
+$j_{\text{target}} = j \bmod \left( \frac{n}{2^i} \right)$
+
+## start
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{black}{1} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{red}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{red}{1} &
+\end{bmatrix}
+```
+## iter 1
+
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} & 
+\textcolor{gray}{0} + \textcolor{red}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{black}{1} + \textcolor{red}{1} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} & 
+\textcolor{red}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{red}{2} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+
+## iter 2
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} &
+\textcolor{blue}{\lvert} & 
+\textcolor{red}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{red}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{gray}{0} + \textcolor{red}{1} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{1} + \textcolor{red}{2} &
+\textcolor{blue}{\lvert} & 
+\textcolor{red}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{1} &
+\textcolor{gray}{0} &
+\textcolor{gray}{0} &
+\textcolor{black}{3} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+## iter 3
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{1} &
+\textcolor{gray}{0} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} &
+\textcolor{red}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{1} &
+\textcolor{gray}{0}+ \textcolor{red}{3} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{1} &
+\textcolor{black}{3} &
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+## iter 4
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{1} &
+\textcolor{blue}{\lvert} & 
+\textcolor{red}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{1} + \textcolor{red}{3}&
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+```math
+B[4] = \begin{bmatrix} 
+\textcolor{black}{4}&
+\textcolor{blue}{\lvert} & 
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{3} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{1} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{2} &
+\textcolor{gray}{\lvert} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\textcolor{gray}{0} & 
+\textcolor{gray}{0} &
+\textcolor{gray}{1} &
+\end{bmatrix}
+```
+
+Now after at most iter
+we got 
+```math
+B[4][0] = \begin{bmatrix} 
+\textcolor{black}{4}
+\end{bmatrix}
+```
+
+
+so now let's look at the martix (without row 0)
+
+
+```math
+B[1][0:\frac{n}{1}] = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \end{bmatrix}
+```
+```math
+B[2][0:\frac{n}{1}] = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[3][0:\frac{n}{1}] = \begin{bmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[4][0:\frac{n}{1}] = \begin{bmatrix} 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \end{bmatrix}
+```
+```math
+B[5][0:\frac{n}{1}] = \begin{bmatrix} 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+```
+```math
+B[6][0:\frac{n}{1}] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
+```
+
+## iter 1
+
+```math
+B[1][0:\frac{n}{2}] = \begin{bmatrix} 1 & 1 & 1 & 0 & 0 & 1 & 1 & 0\end{bmatrix}
+```
+```math
+B[2][0:\frac{n}{2}] = \begin{bmatrix} 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\end{bmatrix}
+```
+```math
+B[3][0:\frac{n}{2}] = \begin{bmatrix} 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0\end{bmatrix}
+```
+```math
+B[4][0:\frac{n}{2}] = \begin{bmatrix} 0 & 0 & 0 & 1 & 1 & 0 & 0 & 2\end{bmatrix}
+```
+```math
+B[5][0:\frac{n}{2}] = \begin{bmatrix} 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\end{bmatrix}
+```
+```math
+B[6][0:\frac{n}{2}] = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix}
+```
+## iter 2
+
+```math
+B[1][0:\frac{n}{4}] = \begin{bmatrix} 1 & 2 & 2 & 0\end{bmatrix}
+```
+```math
+B[2][0:\frac{n}{4}] = \begin{bmatrix} 1 & 0 & 0 & 0\end{bmatrix}
+```
+```math
+B[3][0:\frac{n}{4}] = \begin{bmatrix} 1 & 0 & 1 & 1\end{bmatrix}
+```
+```math
+B[4][0:\frac{n}{4}] = \begin{bmatrix} 1 & 0 & 0 & 3\end{bmatrix}
+```
+```math
+B[5][0:\frac{n}{4}] = \begin{bmatrix} 0 & 0 & 1 & 0\end{bmatrix}
+```
+```math
+B[6][0:\frac{n}{4}] = \begin{bmatrix} 0 & 2 & 0 & 0\end{bmatrix}
+```
+## iter 3
+
+```math
+B[1][0:\frac{n}{8}] = \begin{bmatrix} 3 & 2\end{bmatrix}
+```
+```math
+B[2][0:\frac{n}{8}] = \begin{bmatrix} 1 & 0 \end{bmatrix}
+```
+```math
+B[3][0:\frac{n}{8}] = \begin{bmatrix} 2 & 1\end{bmatrix}
+```
+```math
+B[4][0:\frac{n}{8}] = \begin{bmatrix} 1 & 3\end{bmatrix}
+```
+```math
+B[5][0:\frac{n}{8}] = \begin{bmatrix} 1 & 0\end{bmatrix}
+```
+```math
+B[6][0:\frac{n}{8}] = \begin{bmatrix} 0 & 2\end{bmatrix}
+```
+
+## iter 4
+
+```math
+B[1][0:\frac{n}{16}] = \begin{bmatrix} 5\end{bmatrix}
+```
+```math
+B[2][0:\frac{n}{16}] = \begin{bmatrix} 1 \end{bmatrix}
+```
+```math
+B[3][0:\frac{n}{16}] = \begin{bmatrix} 3\end{bmatrix}
+```
+```math
+B[4][0:\frac{n}{16}] = \begin{bmatrix} 4\end{bmatrix}
+```
+```math
+B[5][0:\frac{n}{16}] = \begin{bmatrix} 1\end{bmatrix}
+```
+```math
+B[6][0:\frac{n}{16}] = \begin{bmatrix} 2\end{bmatrix}
+```
+
+then we get $f_1 = 5$ $f_2 = 1$ $f_3 = 3$ $f_4 = 4$ $f_5 = 1$ $f_6 = 2$ 
 
 # Parallel Folding Count Algorithm
 
@@ -85,7 +614,7 @@ After all folding steps:
 * Total threads: **N**
 
 ---
-<pre> A = [3 1 5 4 2 1 3 4 1 6 1 3 4 6 1 4] M is [1,6] N is 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 | 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 </pre>
+
 ## 📊 Performance
 
 | Metric           | Value                            |
