@@ -136,7 +136,9 @@ $j \in \left[\frac{n}{2^i - 1},\ \frac{n}{2^i}\right]$
 - Move (or fold) it into the **left half** at index:
 $j_{\text{target}} = j \bmod \left( \frac{n}{2^i} \right)$
 
-## start
+<details>
+<summary> Iteration 1 Folding of B[4]</summary>
+ 
 ```math
 B[4] = \begin{bmatrix} 
 \textcolor{gray}{0} &
@@ -158,8 +160,7 @@ B[4] = \begin{bmatrix}
 \textcolor{red}{1} &
 \end{bmatrix}
 ```
-## iter 1
-
+ 
 ```math
 B[4] = \begin{bmatrix} 
 \textcolor{gray}{0} &
@@ -202,9 +203,11 @@ B[4] = \begin{bmatrix}
 \textcolor{gray}{1} &
 \end{bmatrix}
 ```
+</details>
+<details>
+<summary> Iteration 2 Folding of B[4]</summary>
 
-## iter 2
-```math
+ ```math
 B[4] = \begin{bmatrix} 
 \textcolor{gray}{0} &
 \textcolor{gray}{0} &
@@ -270,7 +273,11 @@ B[4] = \begin{bmatrix}
 \textcolor{gray}{1} &
 \end{bmatrix}
 ```
-## iter 3
+</details>
+
+<details>
+<summary> Iteration 3 Folding of B[4]</summary>
+
 ```math
 B[4] = \begin{bmatrix} 
 \textcolor{black}{1} &
@@ -340,7 +347,11 @@ B[4] = \begin{bmatrix}
 \textcolor{gray}{1} &
 \end{bmatrix}
 ```
-## iter 4
+</details>
+
+<details>
+<summary> Iteration 4 Folding of B[4]</summary>
+
 ```math
 B[4] = \begin{bmatrix} 
 \textcolor{black}{1} &
@@ -413,6 +424,7 @@ B[4] = \begin{bmatrix}
 \textcolor{gray}{1} &
 \end{bmatrix}
 ```
+</details>
 
 Now after at most iter
 we got 
@@ -444,8 +456,11 @@ B[5][0:\frac{n}{1}] = \begin{bmatrix} 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 
 ```math
 B[6][0:\frac{n}{1}] = \begin{bmatrix} 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \end{bmatrix}
 ```
+</details>
 
-## iter 1
+<details>
+<summary> Iteration 1 Folding of B</summary>
+
 
 ```math
 B[1][0:\frac{n}{2}] = \begin{bmatrix} 1 & 1 & 1 & 0 & 0 & 1 & 1 & 0\end{bmatrix}
@@ -465,7 +480,9 @@ B[5][0:\frac{n}{2}] = \begin{bmatrix} 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\end{bmatrix}
 ```math
 B[6][0:\frac{n}{2}] = \begin{bmatrix} 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0\end{bmatrix}
 ```
-## iter 2
+</details>
+<details>
+<summary> Iteration 2 Folding of B</summary>
 
 ```math
 B[1][0:\frac{n}{4}] = \begin{bmatrix} 1 & 2 & 2 & 0\end{bmatrix}
@@ -485,7 +502,10 @@ B[5][0:\frac{n}{4}] = \begin{bmatrix} 0 & 0 & 1 & 0\end{bmatrix}
 ```math
 B[6][0:\frac{n}{4}] = \begin{bmatrix} 0 & 2 & 0 & 0\end{bmatrix}
 ```
-## iter 3
+</details>
+
+<details>
+<summary> Iteration 3 Folding of B</summary>
 
 ```math
 B[1][0:\frac{n}{8}] = \begin{bmatrix} 3 & 2\end{bmatrix}
@@ -505,8 +525,10 @@ B[5][0:\frac{n}{8}] = \begin{bmatrix} 1 & 0\end{bmatrix}
 ```math
 B[6][0:\frac{n}{8}] = \begin{bmatrix} 0 & 2\end{bmatrix}
 ```
+</details>
 
-## iter 4
+<details>
+<summary> Iteration 4 Folding of B</summary>
 
 ```math
 B[1][0:\frac{n}{16}] = \begin{bmatrix} 5\end{bmatrix}
@@ -526,8 +548,10 @@ B[5][0:\frac{n}{16}] = \begin{bmatrix} 1\end{bmatrix}
 ```math
 B[6][0:\frac{n}{16}] = \begin{bmatrix} 2\end{bmatrix}
 ```
-
+</details>
+ 
 then we get $f_1 = 5$ $f_2 = 1$ $f_3 = 3$ $f_4 = 4$ $f_5 = 1$ $f_6 = 2$ 
+
 
 # Parallel Folding Count Algorithm
 
