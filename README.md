@@ -1,7 +1,7 @@
 # Parallel Folding Count Algorithm
 
-This project was developed as part of the **Parallel System Programming** course at Bar-Ilan University. It demonstrates a **parallel algorithm for counting the frequency of elements** in an array using folding, allowing efficient computation with **`n` threads and logarithmic time complexity**.
-
+This Algorithm was developed as part of the **Parallel System Programming** course at Bar-Ilan University. It demonstrates a **parallel algorithm for counting the frequency of elements** in an array using folding, allowing efficient computation with **`n` threads and logarithmic time complexity**.
+This Algorithm can be used as part of a Parallel Count Sort 
 ---
 
 ## Problem Overview
