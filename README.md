@@ -29,10 +29,6 @@ Given:
 
 ---
 
-That looks great as a start! Here’s a refined and more polished version of your section, ready for GitHub:
-
----
-
 ##  Algorithm Description
 
 1. **Initialize a matrix** `B` of size `M × N`:
@@ -45,7 +41,6 @@ That looks great as a start! Here’s a refined and more polished version of you
 
 3. **Result**:
    After this step, each row `r` in matrix `B` contains a `1` in every column where the value `r` appeared in `A`.
-
 
 ---
 
